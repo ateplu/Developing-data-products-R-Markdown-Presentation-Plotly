@@ -1,0 +1,36 @@
+---
+title: "R Markdown Presentation and Plotly"
+author: "Anna Teplukhina"
+date: "13 July 2022"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+This project is dedicated to creating a web page presentation using R Markdown that features an interactive plot created by the Plotly package.
+
+On the next slides one can see the R Markdown code to create an interactive plot with the data set `ToothGrowth` and the plot itself. This data set shows the effect of vitamin C on tooth growth in guinea pigs. 
+
+## Generating the plot
+First, one should load the `plotly` library:
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+library(plotly)
+```
+
+Now, one can load the data set `ToothGrowth` and creat a box plot. There are three main characteristics: the observation length `len`, supplement type `supp` (OJ and VC), and the dose level `dose` fixed at 0.5, 1.0 and 2.0 mg level.
+```{r, echo=TRUE, eval=FALSE}
+data(ToothGrowth)
+plot_ly(ToothGrowth, x = ~dose, y = ~len, color=~supp, type = "box")
+```
+
+## The box plot
+```{r, warning=FALSE, message=FALSE}
+data(ToothGrowth)
+plot_ly(ToothGrowth, x = ~dose, y = ~len, color=~supp, type = "box")
+```
+
+
